@@ -17,7 +17,6 @@
  *
  */
 
-#define ENABLE_SET_DEVEUI 0
 
 #define GMXLR_KO                      -1 
 
@@ -41,9 +40,9 @@
 #define GMXLR_SPI_INTERFACE           2
 
 #define GMX_UART_SPEED                9600
+#define GMX_UART_TIMEOUT              3000
 
 #define GMX_BOOT0                     1
-
 #define GMX_BOOT_DELAY                2000
 
 
@@ -104,7 +103,9 @@ byte gmxLR_setAppKey(String appKey);
 byte gmxLR_getClass(String& lrclass);
 byte gmxLR_setClass(String lrclass);
 
-// Network Join
+/*
+ * Network Join and Confimration
+ */
 
 byte gmxLR_Join(void);
 byte gmxLR_isNetworkJoined(void);
@@ -112,7 +113,13 @@ byte gmxLR_isNetworkJoined(void);
 byte gmxLR_setJoinMode(byte mode);
 byte gmxLR_getJoinMode(String& mode);
 
-// Lower Level LoRaWAN Params
+byte gmxLR_getConfirmationMode(void);
+byte gmxLR_setConfirmationMode(String cfm);
+byte gmxLR_getMessageConfirmation(void);
+
+/*
+ * Lower level LoRaWAN Functions
+ */ 
 
 byte gmxLR_getADR();
 byte gmxLR_setADR(String on_off);
@@ -138,15 +145,16 @@ byte gmxLR_getRX2DataRate(String& rx2dr);
 byte gmxLR_setRX2DataRate(String rx2dr);
 
 
-// TX & RX Data
+/*
+ * TX & RX Data
+ */ 
 byte gmxLR_TXData(String data);
 byte gmxLR_TXData(String data, int port);
-
 byte gmxLR_RXData(String& data, int *port);
 
 
 /*
- * 
+ *  ABP
  */
  
 byte gmxLR_getDevAddr(String& devAddr);
@@ -155,15 +163,6 @@ byte gmxLR_getNetworkID(String& netId);
 byte gmxLR_setNetworkID(String netId);
 byte gmxLR_setNetworkSessionKey(String nwsk);
 byte gmxLR_getNetworkSessionKey(String& nwsk);
-
-byte gmxLR_getConfirmationMode(void);
-byte gmxLR_getConfirmationMode(String cfm);
-byte gmxLR_getMessageConfirmation(void);
-
-/*
- * 
- */
-
 byte gmxLR_setApplicationSessionKey(String appsk);
 byte gmxLR_getApplicationSessionKey(String& appsk);
 
@@ -174,7 +173,6 @@ byte gmxLR_getApplicationSessionKey(String& appsk);
 
 byte gmxLR_Led(byte led_state);
 void gmxLR_Reset(void);
-
 void gmxLR_StringToHex(String string, char *data, int *len );
 
 

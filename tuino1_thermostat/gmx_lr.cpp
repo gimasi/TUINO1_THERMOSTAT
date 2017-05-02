@@ -20,7 +20,7 @@
 #include "gmx_lr.h"
 #include "Regexp.h"
 
-#define DEBUG 0
+//#define DEBUG 0
 
 String gmxSerialString;
 
@@ -49,6 +49,10 @@ void _resetGMX(byte state){
 
   switch(state){
     case GMX_BOOT0:
+      // for compatibility with preproduction TUINO1 boards - where GPIO6 and GPIO5 where inverted
+      // in the production board REV E onwards the correct pin is GPIO6
+      pinMode(GMX_GPIO5,OUTPUT);
+      digitalWrite(GMX_GPIO5,0);
       pinMode(GMX_GPIO6,OUTPUT);
       digitalWrite(GMX_GPIO6,0);
       break;
@@ -91,7 +95,7 @@ void _sendCmd(String in) {
   {
      start_timeout = millis();
      while(Serial1.available()==0){
-      if (( millis() - start_timeout ) > 3000 )
+      if (( millis() - start_timeout ) > GMX_UART_TIMEOUT )
       {
         Serial.println("TIMEOUT on :"+in);
         break;
@@ -606,7 +610,7 @@ byte gmxLR_getConfirmationMode(void)
   return(status);    
 }
 
-byte gmxLR_getConfirmationMode(String cfm)
+byte gmxLR_setConfirmationMode(String cfm)
 {
    _sendCmd( "AT+CFM="+cfm+"\r" );
    return( _parseResponse(dummyResponse) );
