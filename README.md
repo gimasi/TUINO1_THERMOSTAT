@@ -40,8 +40,8 @@ You can connect also the NFC antenna, as seen in the picture, and with an NFC en
 <br/>
 
 # PAYLOAD DESCRIPTION
-Here is a quick description of the payload we have implemented<br>
-current_temperature is the temperature sensed by the sensor and thermostat_temperature is the temperature at which the thermostat is set.<br/>
+Here is a quick description of the payload we have implemented.<br>
+<b>current_temperature</b> is the temperature sensed by the sensor and <b>thermostat_temperature</b> is the temperature at which the thermostat is set.<br/>
 
 <b>Uplink</b>
 ```C
