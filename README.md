@@ -1,15 +1,37 @@
 # Tuino 1 Maker's Kit Thermostat Demo Application
-The Tuino 1 Maker's Kit comes with Temperature Sensor, Pusbutton, Relay, 128x64 OLED Display, NFC Antenna as well as a plexiglass board with screws and standoffs to put evertyhing together.<br/>
+The IoT demo application for the Maker's Kit is a thermostat. In this example we are using the LoRaWAN GMX-LR1 module for the Tuino 1.<br>
+For a full description of the Tuino 1 functionalities check it's GitHub page [TUINO 1](https://github.com/gimasi/TUINO_ONE).<br>
+
+
+The Tuino 1 Maker's Kit comes with some sensors/actuators, NFC Antenna as well as a plexiglass board with screws and standoffs to put evertyhing together.<br/>
 <br/>
 Here is what the assembled kit looks like
 ![MAKERS_KIT](/docs/img/full_kit.jpg?raw=true)
 
-The IoT demo application is a thermostat that you can control over RF, in this example we are using the GMX-LR1 LoRaWAN module of the Tuino 1. For a full description of the Tuino 1 functionalities check it's GitHub page [TUINO 1](https://github.com/gimasi/TUINO_ONE).<br>
+These are the bundled sensors/actuators
+* [Button](https://www.seeedstudio.com/Grove-Button-p-766.html)
+* [Relay](https://www.seeedstudio.com/Grove-Relay-p-769.html)
+* [Temperature Sensor](https://www.seeedstudio.com/Grove-Temperature-Sensor-p-774.html)
+* [OLED Display](https://www.seeedstudio.com/Grove-OLED-Display-0.96%22-p-781.html)
+
 <br>
-This new Maker's kit come with an OLED display which really ehances the overall user experience.
+The OLED display really ehances the overall user experience!.
 ![OLED1](/docs/img/oled1.jpg?raw=true)
 
 You can use the kit with any LoRaWAN server, or use our Tuino Cloud platform, which uses [Swisscom LPN](http://lpn.swisscom.ch/e/)  or [ThingPark](https://partners.thingpark.com/) by Actility connectivity. 
+
+# Connecting the Sensors/Actuators
+The Tuino 1 has 4 Grooove connectors:
+* 1 Analog - A0
+* 2 Digital - D4 and D5
+* 1 I2C
+
+Connect the sensors in the following order to make everything work out of the box
+
+* Temperature on A0
+* Button on D4
+* Relay on D5
+* OLED Display on the I2C port
 
 # PAYLOAD DESCRIPTION
 Here is a quick description of the payload we have implemented<br>
