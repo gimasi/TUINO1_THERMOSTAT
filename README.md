@@ -6,6 +6,7 @@ For a full description of the Tuino 1 functionalities check it's GitHub page [TU
 The Tuino 1 Maker's Kit comes with some sensors/actuators, NFC Antenna as well as a plexiglass board with screws and standoffs to put evertyhing together.<br/>
 <br/>
 Here is what the assembled kit looks like
+
 ![MAKERS_KIT](/docs/img/full_kit.jpg?raw=true)
 
 These are the bundled sensors/actuators
@@ -15,7 +16,8 @@ These are the bundled sensors/actuators
 * [OLED Display](https://www.seeedstudio.com/Grove-OLED-Display-0.96%22-p-781.html)
 
 <br>
-The OLED display really ehances the overall user experience!.
+The OLED display really ehances the overall user experience!!
+
 ![OLED1](/docs/img/oled1.jpg?raw=true)
 
 You can use the kit with any LoRaWAN server, or use our Tuino Cloud platform, which uses [Swisscom LPN](http://lpn.swisscom.ch/e/)  or [ThingPark](https://partners.thingpark.com/) by Actility connectivity. 
