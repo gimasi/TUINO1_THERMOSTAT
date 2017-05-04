@@ -1,6 +1,6 @@
 # Tuino 1 Maker's Kit Thermostat Demo Application
-The IoT demo application for the Maker's Kit is a thermostat. In this example we are using the LoRaWAN GMX-LR1 module for the Tuino 1.<br>
-For a full description of the Tuino 1 functionalities check it's GitHub page [TUINO 1](https://github.com/gimasi/TUINO_ONE).<br>
+The IoT demo application for the Maker's Kit is a thermostat. In this example we are using the LoRaWAN GMX-LR1 module for the Tuino 1.
+For a full description of the Tuino 1 check it's GitHub page [TUINO 1](https://github.com/gimasi/TUINO_ONE).<br>
 
 
 The Tuino 1 Maker's Kit comes with some sensors/actuators, NFC Antenna as well as a plexiglass board with screws and standoffs to put evertyhing together.<br/>
