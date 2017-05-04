@@ -39,7 +39,7 @@ Connect the sensors in the following order to make everything work out of the bo
 You can connect also the NFC antenna, as seen in the picture, and with an NFC enabled smartphone you can read the paramaters of the Thermostat.<br/>
 <br/>
 
-# PAYLOAD DESCRIPTION
+# Payload Description
 Here is a quick description of the payload we have implemented.<br>
 <b>current_temperature</b> is the temperature sensed by the sensor and <b>thermostat_temperature</b> is the temperature at which the thermostat is set.<br/>
 
@@ -100,7 +100,7 @@ For instant gratification send a 0101 payload and hear the relay clicking....
 # HTML Frontend
 An HTML frontend is available [here](https://github.com/gimasi/TUINO-LPN-KIT-HTML-FRONTEND), with which you can control via a Web Interface the Tuino 1 Thermostat
 
-# TUINO CLOUD SCRIPT
+# Tuino Cloud Script
 One of the features of the Tuino Cloud is the ability to execute arbitrary Javascript scripts that can be attached to any node.<br/>
 Once the node sends an up link the Tuino Cloud will verify if that node has a script attached and will execute the corresponding script.<br>
 Here is the example script for the Thermostat demo that will decode the payload and save the temperature data in a time series that can be viewed as a graph directly from the Tuino Cloud dashbaord.
