@@ -9,12 +9,13 @@
    tuino_lora.ino
 
     Created on: March 11, 2017
-        Author: Massimo Santoli
+        Author: Massimo Santoli massimo@gimasi.ch
         Brief: Tuino1 Maker's Kit IoT Thermostat Demo
         Version: 1.0
 
         License: it's free - do whatever you want! ( provided you leave the credits)
 
+        Hysteresis and bug fixes by Remi Gunsett remi.gunsett@actility.com
 */
 
 #include "gmx_lr.h"
@@ -260,6 +261,9 @@ void setup() {
   delay(2000);
   SeeedOled.clearDisplay();
 
+  // Init Temperature
+  current_temperature = readTemp();
+
 }
 
 void loop() {
@@ -281,7 +285,7 @@ void loop() {
   // Transmit Period
   if (( delta_lora_tx > timer_period_to_tx) || (timer_millis_lora_tx == 0 )) {
 
-    temperature_int = readTemp() * 100;
+    temperature_int = current_temperature * 100;
 
     Serial.println(temperature_int);
 
