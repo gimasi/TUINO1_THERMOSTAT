@@ -1,20 +1,21 @@
 # Tuino 1 Maker's Kit Thermostat Demo Application
 The Tuino 1 Maker's Kit comes with Temperature Sensor, Pusbutton, Relay, 128x64 OLED Display, NFC Antenna as well as a plexiglass board with screws and standoffs to put evertyhing together.<br/>
-Here is a picture of the new Tuino1 Maker's Kit
+<br/>
+Here is what the assembled kit looks like
 ![MAKERS_KIT](/docs/img/full_kit.jpg?raw=true)
 
-The example application is a thermostat that you can control over RF, in this example we are using the GMX-LR1 LoRaWAN module of the Tuino 1. For a full description of the Tuino 1 functionalities check it's GitHub page [TUINO 1](https://github.com/gimasi/TUINO_ONE).<br>
+The IoT demo application is a thermostat that you can control over RF, in this example we are using the GMX-LR1 LoRaWAN module of the Tuino 1. For a full description of the Tuino 1 functionalities check it's GitHub page [TUINO 1](https://github.com/gimasi/TUINO_ONE).<br>
 <br>
 This new Maker's kit come with an OLED display which really ehances the overall user experience.
 ![OLED1](/docs/img/oled1.jpg?raw=true)
 
-You can use the kit with any LoRaWAN server, or use our Tuino CLoud platform, which uses (Swisscom LPN](http://lpn.swisscom.ch/e/) connectivity or [ThingPark](https://partners.thingpark.com/) by Actility. 
+You can use the kit with any LoRaWAN server, or use our Tuino Cloud platform, which uses [Swisscom LPN](http://lpn.swisscom.ch/e/)  or [ThingPark](https://partners.thingpark.com/) by Actility connectivity. 
 
 # PAYLOAD DESCRIPTION
 Here is a quick description of the payload we have implemented<br>
 current_temperature is the temperature sensed by the sensor and thermostat_temperature is the temperature at which the thermostat is set.<br/>
 
-<b>Uplink</b>b>
+<b>Uplink</b>
 ```C
  temperature_int = current_temperature * 100;
 
@@ -65,7 +66,7 @@ current_temperature is the temperature sensed by the sensor and thermostat_tempe
 
 ```
 
-For instant gratification send a 0101 payload and here the relay clicking....
+For instant gratification send a 0101 payload and hear the relay clicking....
 <br>
 
 # HTML Frontend
