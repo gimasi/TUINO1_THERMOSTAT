@@ -35,6 +35,10 @@ Connect the sensors in the following order to make everything work out of the bo
 * Relay on D5
 * OLED Display on the I2C port
 
+<br/>
+You can connect also the NFC antenna, as seen in the picture, and with an NFC enabled smartphone you can read the paramaters of the Thermostat.<br/>
+<br/>
+
 # PAYLOAD DESCRIPTION
 Here is a quick description of the payload we have implemented<br>
 current_temperature is the temperature sensed by the sensor and thermostat_temperature is the temperature at which the thermostat is set.<br/>
