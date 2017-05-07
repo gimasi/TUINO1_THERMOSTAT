@@ -6,7 +6,7 @@
   \_____||_____||_|  |_|/_/    \_\|_____/ |_____|
   (c) 2017 GIMASI SA
 
-   tuino_lora.ino
+   tuino1_thermostat.ino
 
     Created on: March 11, 2017
         Author: Massimo Santoli massimo@gimasi.ch
