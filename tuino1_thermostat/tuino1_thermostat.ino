@@ -217,9 +217,16 @@ void setup() {
     {
       // If AppKey and/or AppEUI are specified set them
       if (NewAppEui.length() > 0 )
+      {
+        Serial.println("**** UPDATING AppEUI ****");
         gmxLR_setAppEui(NewAppEui);
+      }
       if (NewAppKey.length() > 0 )
+      {
+        Serial.println("**** UPDATING AppKey ****");
         gmxLR_setAppKey(NewAppKey);
+      }
+
 
       // Disable Duty Cycle  ONLY FOR DEBUG!
       gmxLR_setDutyCycle("0");
