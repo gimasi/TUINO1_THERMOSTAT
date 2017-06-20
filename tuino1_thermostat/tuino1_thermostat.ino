@@ -145,9 +145,12 @@ void setup() {
   String DevEui;
   String AppEui;
   String AppKey;
+  String NewAppEui;
+  String NewAppKey;
   String _AppEui;
   String _AppKey;
   String loraClass;
+  String version;
 
   char string[64];
 
@@ -180,10 +183,14 @@ void setup() {
   // GMX-LR init pass callback function
   gmxLR_init(&loraRx);
 
+  gmxLR_getVersion(version);
+  Serial.println("GMXLR Version:"+version);
+  
+
   // Set AppEui and AppKey
   // Uncomment these if you want to change the default keys
-  // AppEui = "00:00:00:00:00:00:00:00";
-  // AppKey = "6d:41:46:39:67:4e:30:56:46:4a:62:4c:67:30:58:33";
+  // NewAppEui = "00:00:00:00:00:00:00:00";
+  // NewAppKey = "6d:41:46:39:67:4e:30:56:46:4a:62:4c:67:30:58:33";
 
 
   // Show Splash Screen on OLED
@@ -209,10 +216,10 @@ void setup() {
     if ( join_wait == 0 )
     {
       // If AppKey and/or AppEUI are specified set them
-      if (AppEui.length() > 0 )
-        gmxLR_setAppEui(AppEui);
-      if (AppKey.length() > 0 )
-        gmxLR_setAppKey(AppKey);
+      if (NewAppEui.length() > 0 )
+        gmxLR_setAppEui(NewAppEui);
+      if (NewAppKey.length() > 0 )
+        gmxLR_setAppKey(NewAppKey);
 
       // Disable Duty Cycle  ONLY FOR DEBUG!
       gmxLR_setDutyCycle("0");
