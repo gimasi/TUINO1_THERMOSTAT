@@ -83,6 +83,7 @@
  */
  
 byte gmxLR_init(void (*function)());
+byte gmxLR_getVersion(String& version);
 
 /*
  *  OTAA LoRaWAN Parameters 

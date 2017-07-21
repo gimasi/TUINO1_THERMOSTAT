@@ -216,6 +216,13 @@ byte gmxLR_init(void( *callback)())
     
 }
 
+/* Version */
+byte gmxLR_getVersion(String& version)
+{
+   _sendCmd( "AT+VER=?\r" );
+   return( _parseResponse(version) );
+}
+
 /* DevEui */
 byte gmxLR_getDevEui(String& devEui)
 {
