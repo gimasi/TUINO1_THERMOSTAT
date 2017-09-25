@@ -149,7 +149,7 @@ void setup() {
   String NewAppKey;
   String _AppEui;
   String _AppKey;
-  String loraClass;
+  String loraClass,LoRaWANClass;
   String version;
 
   char string[64];
@@ -185,14 +185,82 @@ void setup() {
 
   gmxLR_getVersion(version);
   Serial.println("GMXLR Version:"+version);
-  
 
   // Set AppEui and AppKey
   // Uncomment these if you want to change the default keys
+  
   // NewAppEui = "00:00:00:00:00:00:00:00";
   // NewAppKey = "6d:41:46:39:67:4e:30:56:46:4a:62:4c:67:30:58:33";
 
+  // Region is available in GMX Firmware v2.0
+  // available regions: EU868,US915,IN865,AS923,AU915,CN779,KR920
+  // NewLoraRegion = "AS923";
+  
+  LoRaWANClass = "C";
 
+
+#ifdef MULTIREGION
+  gmxLR_getRegion(Region);
+  if (NewLoraRegion.length() > 0 )
+  {
+    Region.trim();
+    
+    Serial.println("**** UPDATING Region ****");
+  
+    if ( !Region.equals(NewLoraRegion) )
+    {
+       Serial.println("Setting Region:"+NewLoraRegion);
+       gmxLR_setRegion(NewLoraRegion);
+       // reboot GMX_LR1
+       gmxLR_Reset();
+    }
+    else
+    {
+       Serial.println("Region is already:"+Region);
+    }
+  }
+#endif
+
+  gmxLR_getAppEui(AppEui);
+  if (NewAppEui.length() > 0 )
+  {
+        AppEui.trim();
+        
+        Serial.println("**** UPDATING AppEUI ****");
+        if ( !AppEui.equals(NewAppEui) )
+        {
+          Serial.println("Setting AppEui:"+NewAppEui);
+          gmxLR_setAppEui(NewAppEui);
+        }
+        else
+        {
+          Serial.println("AppEui is already:"+AppEui);
+        }
+  }
+
+  gmxLR_getAppKey(AppKey);
+  if (NewAppKey.length() > 0 )
+  {
+      AppKey.trim();
+      
+      Serial.println("**** UPDATING AppKey ****");
+      if ( !AppKey.equals(NewAppKey) )
+      {
+          Serial.println("Setting AppKey:"+NewAppKey);
+          gmxLR_setAppKey(NewAppKey);
+      }
+      else
+      {
+          Serial.println("AppKey is already:"+AppKey);
+      }
+  }
+
+  // Disable Duty Cycle  ONLY FOR DEBUG!
+  gmxLR_setDutyCycle("0");
+
+  // Set LoRaWAN Class
+  gmxLR_setClass(LoRaWANClass);
+  
   // Show Splash Screen on OLED
   splashScreen();
   waitButton();
@@ -215,25 +283,6 @@ void setup() {
 
     if ( join_wait == 0 )
     {
-      // If AppKey and/or AppEUI are specified set them
-      if (NewAppEui.length() > 0 )
-      {
-        Serial.println("**** UPDATING AppEUI ****");
-        gmxLR_setAppEui(NewAppEui);
-      }
-      if (NewAppKey.length() > 0 )
-      {
-        Serial.println("**** UPDATING AppKey ****");
-        gmxLR_setAppKey(NewAppKey);
-      }
-
-
-      // Disable Duty Cycle  ONLY FOR DEBUG!
-      gmxLR_setDutyCycle("0");
-
-      // Set LoRaWAN Class
-      gmxLR_setClass("C");
-
       Serial.println("LoRaWAN Params:");
       gmxLR_getDevEui(DevEui);
       Serial.println("DevEui:" + DevEui);
@@ -285,9 +334,9 @@ void loop() {
 
   long int delta_lora_tx;
   int temperature_int;
-  char lora_data[32];
-  byte tx_buf[32];
-  byte rx_buf[256];
+  char lora_data[128];
+  byte tx_buf[128];
+  byte rx_buf[128];
   int buf_len;
 
   String rx_data;
